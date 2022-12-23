@@ -1,0 +1,242 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Level/TrueLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/ResetButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Relativity.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/Numbs.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Sprites/Parallax/1Over.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Parallax.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Parallax/1Under.png" type="Texture" id=8]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=9]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=10]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=11]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 72.5, 512 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 76.5, 512 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 278, 25 )
+
+[node name="Relativity" type="Node2D"]
+z_index = -1
+script = ExtResource( 3 )
+parallaxBuffer = 300
+deathScroll = 10000
+level = ExtResource( 1 )
+resetButton = ExtResource( 2 )
+boostMax = 5000
+thresh1 = 15000
+thresh2 = 30000
+speedMin = 1500
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 288, 450 )
+current = true
+
+[node name="Left wall" type="StaticBody2D" parent="Camera" groups=["Walls"]]
+position = Vector2( -288, -13 )
+__meta__ = {
+"_editor_description_": "The player bounces off of it."
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/Left wall"]
+position = Vector2( -62.5, 13 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera" groups=["Walls"]]
+position = Vector2( 288, -11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/StaticBody2D"]
+position = Vector2( 66.5, 11 )
+shape = SubResource( 2 )
+
+[node name="LabelList" type="Node2D" parent="Camera"]
+position = Vector2( 0, 365 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_editor_description_": "Displays the player's current score at the bottom of the screen during play."
+}
+
+[node name="Millions" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( -51, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Hundred_Thousands" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( -34, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Ten_Thous" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( -17, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Thousands" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( 0, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Hundreds" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( 17, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Tens" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( 34, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="Ones" type="AnimatedSprite" parent="Camera/LabelList"]
+position = Vector2( 51, 20 )
+frames = ExtResource( 4 )
+animation = "Numbers"
+
+[node name="HighList" type="Node2D" parent="Camera"]
+visible = false
+position = Vector2( 0, 290 )
+scale = Vector2( 2, 2 )
+__meta__ = {
+"_editor_description_": "Displays the player's high score in between runs"
+}
+
+[node name="Millions" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( -51, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Hundred_Thousands" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( -34, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Ten_Thous" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( -17, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Thousands" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( 0, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Hundreds" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( 17, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Tens" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( 34, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="Ones" type="AnimatedSprite" parent="Camera/HighList"]
+position = Vector2( 51, 20 )
+frames = ExtResource( 4 )
+animation = "WhiteNums"
+
+[node name="BoundsEnd" type="Area2D" parent="Camera"]
+position = Vector2( 0, 500 )
+__meta__ = {
+"_editor_description_": "Detects the player and triggers OOB(), starting the death sequence."
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/BoundsEnd"]
+shape = SubResource( 15 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Starscroll" type="ParallaxBackground" parent="."]
+
+[node name="Stars" type="ParallaxLayer" parent="Starscroll"]
+motion_scale = Vector2( 1, 0.5 )
+motion_mirroring = Vector2( 0, 1024 )
+
+[node name="Sprite" type="Sprite" parent="Starscroll/Stars"]
+position = Vector2( 288, 512 )
+texture = ExtResource( 7 )
+
+[node name="MarkUnder" type="ParallaxLayer" parent="Starscroll"]
+visible = false
+motion_scale = Vector2( 1, 0.82 )
+motion_mirroring = Vector2( 0, 900 )
+
+[node name="Sprite" type="Sprite" parent="Starscroll/MarkUnder"]
+position = Vector2( 288, 450 )
+texture = ExtResource( 8 )
+
+[node name="MarkOver" type="ParallaxLayer" parent="Starscroll"]
+visible = false
+motion_scale = Vector2( 1, 0.75 )
+motion_mirroring = Vector2( 0, 900 )
+
+[node name="Sprite" type="Sprite" parent="Starscroll/MarkOver"]
+position = Vector2( 288, 450 )
+texture = ExtResource( 6 )
+
+[node name="LevelSpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="AkBank" type="Node" parent="."]
+script = ExtResource( 9 )
+bank = {
+"Id": 3427827313,
+"Name": "MUSICSOUNDBANK"
+}
+load_on = 3
+unload_on = 2
+
+[node name="AkListener" type="Spatial" parent="."]
+script = ExtResource( 11 )
+
+[node name="Events" type="Node" parent="."]
+
+[node name="PlayMusic" type="Node2D" parent="Events"]
+script = ExtResource( 10 )
+event = {
+"Id": 1256202815,
+"Name": "PLAY"
+}
+trigger_on = 3
+
+[node name="Phase1" type="Node2D" parent="Events"]
+script = ExtResource( 10 )
+event = {
+"Id": 4279841335,
+"Name": "RESPAWN"
+}
+
+[node name="Phase2" type="Spatial" parent="Events"]
+script = ExtResource( 12 )
+event = {
+"Id": 1993696623,
+"Name": "SETSTATEPHASE2"
+}
+
+[node name="Phase3" type="Spatial" parent="Events"]
+script = ExtResource( 12 )
+event = {
+"Id": 1993696622,
+"Name": "SETSTATEPHASE3"
+}
+
+[node name="Death" type="Spatial" parent="Events"]
+script = ExtResource( 12 )
+event = {
+"Id": 4158285989,
+"Name": "GAMEOVER"
+}
+
+[connection signal="body_entered" from="Camera/BoundsEnd" to="." method="_on_OOB"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_tween_over"]
+[connection signal="timeout" from="LevelSpawnTimer" to="." method="_on_LevelSpawnTimer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

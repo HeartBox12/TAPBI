@@ -1,0 +1,121 @@
+class_name AK
+
+class EVENTS:
+
+	const PLAY = 1256202815 
+	const SETSTATEPAUSED = 4091358244 
+	const RESPAWN = 4279841335 
+	const SETSTATEPHASE1 = 1993696620 
+	const SETSTATEDEAD = 2167267996 
+	const SETSTATEPHASE2 = 1993696623 
+	const STOPALL = 3086540886 
+	const SETSTATEPHASE3 = 1993696622 
+	const SETSTATEINGAME = 3534336897 
+	const GAMEOVER = 4158285989 
+
+	const _dict = { 
+	 "PLAY": PLAY,
+	 "SETSTATEPAUSED": SETSTATEPAUSED,
+	 "RESPAWN": RESPAWN,
+	 "SETSTATEPHASE1": SETSTATEPHASE1,
+	 "SETSTATEDEAD": SETSTATEDEAD,
+	 "SETSTATEPHASE2": SETSTATEPHASE2,
+	 "STOPALL": STOPALL,
+	 "SETSTATEPHASE3": SETSTATEPHASE3,
+	 "SETSTATEINGAME": SETSTATEINGAME,
+	 "GAMEOVER": GAMEOVER
+	} 
+
+class STATES:
+
+	class PLAYERSTATE:
+		const GROUP = 3285234865 
+
+		class STATE:
+			const DEAD = 2044049779 
+			const PHASE1 = 3630028971 
+			const NONE = 748895195 
+			const PHASE3 = 3630028969 
+			const PHASE2 = 3630028968 
+
+	class GAMESTATE:
+		const GROUP = 4091656514 
+
+		class STATE:
+			const PAUSED = 319258907 
+			const NONE = 748895195 
+			const INGAME = 984691642 
+
+	const _dict = { 
+		"PLAYERSTATE": {
+			"GROUP": 3285234865,
+			"STATE": {
+				"DEAD": 2044049779,
+				"PHASE1": 3630028971,
+				"NONE": 748895195,
+				"PHASE3": 3630028969,
+				"PHASE2": 3630028968
+			} 
+		}, 
+		"GAMESTATE": {
+			"GROUP": 4091656514,
+			"STATE": {
+				"PAUSED": 319258907,
+				"NONE": 748895195,
+				"INGAME": 984691642,
+			} 
+		} 
+	} 
+
+class SWITCHES:
+
+	const _dict = {} 
+
+class GAME_PARAMETERS:
+
+	const MUSICVOLUME = 2346531308 
+
+	const _dict = { 
+	 "MUSICVOLUME": MUSICVOLUME
+	} 
+
+class TRIGGERS:
+
+	const _dict = {} 
+
+class BANKS:
+
+	const INIT = 1355168291 
+	const MUSICSOUNDBANK = 3427827313 
+
+	const _dict = { 
+	 "INIT": INIT,
+	 "MUSICSOUNDBANK": MUSICSOUNDBANK
+	} 
+
+class BUSSES:
+
+	const MASTER_AUDIO_BUS = 3803692087 
+
+	const _dict = { 
+	 "MASTER AUDIO BUS": MASTER_AUDIO_BUS
+	} 
+
+class AUX_BUSSES:
+
+	const _dict = {} 
+
+class AUDIO_DEVICES:
+
+	const NO_OUTPUT = 2317455096 
+	const SYSTEM = 3859886410 
+
+	const _dict = { 
+	 "NO OUTPUT": NO_OUTPUT,
+	 "SYSTEM": SYSTEM
+	} 
+
+class EXTERNAL_SOURCES:
+
+	const _dict = {} 
+

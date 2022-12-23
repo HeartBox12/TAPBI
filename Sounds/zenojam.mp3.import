@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zenojam.mp3-c520acb3cd7e3cf318740e4b75fb3d8f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/zenojam.mp3"
+dest_files=[ "res://.import/zenojam.mp3-c520acb3cd7e3cf318740e4b75fb3d8f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2494274476">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>1355168291.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3427827313" Language="SFX" Hash="3628715660">
+			<ObjectPath>\SoundBanks\Default Work Unit\MusicSoundbank</ObjectPath>
+			<ShortName>MusicSoundbank</ShortName>
+			<Path>3427827313.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4158285989" Name="GameOver" ObjectPath="\Events\Default Work Unit\GameOver">
+					<ActionSetState>
+						<ActionSetStateEntry Id="319258907" Name="Paused" ObjectPath="\States\Default Work Unit\GameState\Paused"/>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerState\Dead"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1256202815" Name="Play" ObjectPath="\Events\Default Work Unit\Play">
+					<IncludedMemoryFiles>
+						<File Id="84553735" Language="SFX">
+							<ShortName>intro.wav</ShortName>
+							<Path>SFX\intro_D79FB2B7.wem</Path>
+						</File>
+						<File Id="146368538" Language="SFX">
+							<ShortName>transition 02a.wav</ShortName>
+							<Path>SFX\transition 02a_D79FB2B7.wem</Path>
+						</File>
+						<File Id="463991741" Language="SFX">
+							<ShortName>03.wav</ShortName>
+							<Path>SFX\03_D79FB2B7.wem</Path>
+						</File>
+						<File Id="545128058" Language="SFX">
+							<ShortName>transition 01b.wav</ShortName>
+							<Path>SFX\transition 01b_D79FB2B7.wem</Path>
+						</File>
+						<File Id="692696878" Language="SFX">
+							<ShortName>02.wav</ShortName>
+							<Path>SFX\02_D79FB2B7.wem</Path>
+						</File>
+						<File Id="722947869" Language="SFX">
+							<ShortName>01.wav</ShortName>
+							<Path>SFX\01_D79FB2B7.wem</Path>
+						</File>
+						<File Id="892579960" Language="SFX">
+							<ShortName>dead.wav</ShortName>
+							<Path>SFX\dead_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{5E952E43-408C-49EF-B149-B03168A965C0}">
+							<Media>
+								<File Id="892579960"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{4B5CC5E1-CE53-4F64-8C17-9627A5202AF7}">
+							<Media>
+								<File Id="722947869"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{AF88E435-BF53-46BC-87FE-AD14C05EEBDA}">
+							<Media>
+								<File Id="692696878"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{10CC3AAC-C989-4E5D-9131-AE0C1F4A60C2}">
+							<Media>
+								<File Id="463991741"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\GameState\InGame"/>
+						<ActionSetStateEntry Id="3630028971" Name="Phase1" ObjectPath="\States\Default Work Unit\PlayerState\Phase1"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="4279841335" Name="Respawn" ObjectPath="\Events\Default Work Unit\Respawn">
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\GameState\InGame"/>
+						<ActionSetStateEntry Id="3630028971" Name="Phase1" ObjectPath="\States\Default Work Unit\PlayerState\Phase1"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2167267996" Name="SetStateDead" ObjectPath="\Events\Default Work Unit\SetStateDead">
+					<ActionSetState>
+						<ActionSetStateEntry Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerState\Dead"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="3534336897" Name="SetStateInGame" ObjectPath="\Events\Default Work Unit\SetStateInGame">
+					<ActionSetState>
+						<ActionSetStateEntry Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\GameState\InGame"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="4091358244" Name="SetStatePaused" ObjectPath="\Events\Default Work Unit\SetStatePaused">
+					<ActionSetState>
+						<ActionSetStateEntry Id="319258907" Name="Paused" ObjectPath="\States\Default Work Unit\GameState\Paused"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1993696620" Name="SetStatePhase1" ObjectPath="\Events\Default Work Unit\SetStatePhase1">
+					<ActionSetState>
+						<ActionSetStateEntry Id="3630028971" Name="Phase1" ObjectPath="\States\Default Work Unit\PlayerState\Phase1"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1993696623" Name="SetStatePhase2" ObjectPath="\Events\Default Work Unit\SetStatePhase2">
+					<ActionSetState>
+						<ActionSetStateEntry Id="3630028968" Name="Phase2" ObjectPath="\States\Default Work Unit\PlayerState\Phase2"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1993696622" Name="SetStatePhase3" ObjectPath="\Events\Default Work Unit\SetStatePhase3">
+					<ActionSetState>
+						<ActionSetStateEntry Id="3630028969" Name="Phase3" ObjectPath="\States\Default Work Unit\PlayerState\Phase3"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="3086540886" Name="StopAll" ObjectPath="\Events\Default Work Unit\StopAll"/>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicVolume"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="319258907" Name="Paused" ObjectPath="\States\Default Work Unit\GameState\Paused" GUID="{17602566-B7AC-417E-AC45-4527B6890A24}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="984691642" Name="InGame" ObjectPath="\States\Default Work Unit\GameState\InGame" GUID="{51AEC560-8272-424D-9047-F45D6200F552}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerState\Dead" GUID="{5E952E43-408C-49EF-B149-B03168A965C0}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3285234865" Name="PlayerState" ObjectPath="\States\Default Work Unit\PlayerState" GUID="{386836D1-1464-445B-8EC1-5E318956060C}">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\PlayerState\None" GUID="{514B9D55-AF2D-404D-B1BA-C81B4B4FDF5B}"/>
+						<State Id="2044049779" Name="Dead" ObjectPath="\States\Default Work Unit\PlayerState\Dead" GUID="{5E952E43-408C-49EF-B149-B03168A965C0}"/>
+						<State Id="3630028968" Name="Phase2" ObjectPath="\States\Default Work Unit\PlayerState\Phase2" GUID="{AF88E435-BF53-46BC-87FE-AD14C05EEBDA}"/>
+						<State Id="3630028969" Name="Phase3" ObjectPath="\States\Default Work Unit\PlayerState\Phase3" GUID="{10CC3AAC-C989-4E5D-9131-AE0C1F4A60C2}"/>
+						<State Id="3630028971" Name="Phase1" ObjectPath="\States\Default Work Unit\PlayerState\Phase1" GUID="{4B5CC5E1-CE53-4F64-8C17-9627A5202AF7}"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3630028968" Name="Phase2" ObjectPath="\States\Default Work Unit\PlayerState\Phase2" GUID="{AF88E435-BF53-46BC-87FE-AD14C05EEBDA}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3630028969" Name="Phase3" ObjectPath="\States\Default Work Unit\PlayerState\Phase3" GUID="{10CC3AAC-C989-4E5D-9131-AE0C1F4A60C2}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3630028971" Name="Phase1" ObjectPath="\States\Default Work Unit\PlayerState\Phase1" GUID="{4B5CC5E1-CE53-4F64-8C17-9627A5202AF7}">
+					<States/>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

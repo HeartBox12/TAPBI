@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Level Objects/Launcher/Launcher.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/TutPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Scenes/Scene1.gd" type="Script" id=3]
+[ext_resource path="res://Level/Scenes/Scene1.5.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/UI/SpacebarUI.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Scene1Back.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 64, 25 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 64, 25 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Scene1" type="Node2D"]
+script = ExtResource( 3 )
+next = ExtResource( 4 )
+
+[node name="Launcher" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 630 )
+strength = 80000
+
+[node name="TutPlayer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 288, 562 )
+
+[node name="SpacePrompt" type="AnimatedSprite" parent="."]
+position = Vector2( 288, 100 )
+scale = Vector2( 2, 2 )
+z_index = -1
+frames = SubResource( 3 )
+
+[node name="LaunchPause" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 288, 388 )
+scale = Vector2( 2, 2 )
+z_index = -2
+texture = ExtResource( 6 )
+
+[connection signal="timeout" from="LaunchPause" to="." method="_on_LaunchPause_timeout"]

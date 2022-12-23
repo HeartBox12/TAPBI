@@ -1,0 +1,62 @@
+1 - Computer!
+2 - Yes, Pilot?
+1 - What's the status on the supplies?
+2 - "Cancelled", pilot.
+1 - WHAT?
+2 - "Cancelled", Pilot.
+1 - You're kidding.
+2 - Reason for cancellation is listed as-
+1 - Never should have signed up with these people. They catch one whiff of an orbital mine field and ditch their best pilot.
+2 - Correction: the current allied pilot with the most confirmed kills is-
+1 - Why the hell did they say they change their minds, anyway?
+2 - Reason for cancellation is listed as "Destruction of package due to orbital mine field no one warned us about".
+2 - ...Proposal; Switch to automatic intelligence collection. You may be less likely to forget details that way.
+1 - No.
+1 - ...Alright, so no fuel refill. How far can we get with what we've got?
+2 - Insufficient reserves to reach escape velocity.
+1 - How far, computer?
+2 - ...1,306 m above planetary surface.
+1 - And the minefield is where?
+2 - 1, 295m above planetary surface.
+2 - ...Pilot, I'm reading an unidentified device in the cabin. What the hell is that?
+1 - Just something I made in my spare time. A little thing to detonate mines from a distance. Might be useful
+if we were to, er, ride a wave? If I can get a bomb or two under me, that is.
+2 - Analogy failure. Those objects are high-yield explosive armaments.
+1 - Nah, those're for locking down civvies. This ship can take it.
+2 - Evaluating... Correct, in all cases except for a direct hit.
+1 - I'm better than that. Log the current course of action.
+2 - Current course of action logged. Will attempt to escape gravity well through propulsion from remotely detonated enemy
+warheads... Please re-confirm directive.
+1 - Hell yeah.
+2 - Preparing to mark explosive radii. Calibrating device ID "Hack&Det" Ascent sequence initiated. Goodbye, Pilot.
+1 - Check this out.
+
+[ALT]
+Your name is Laurie McGonagahoog, of the Merciless Void of Outer Space Reconnaisance Brigade.
+You've been abandoned.
+
+You've been sent on a mission to scout out an enemy planet and report back its defences.
+You ran out of fuel, behind enemy lines.
+
+You sent a plea for supplies and a full report. Ground-to-space turrets, scanning stations, EMP projectors, the works.
+
+The supplies never came.
+
+[ALT]
+
+That ship doesn't have enough fuel. It's not going to make escape velocity. Doesn't the pilot know?
+
+Oh, they do.
+
+--Improvised launch is ready--
+
+I'm reading an unidentified device in the cabin. I'm sounding an alert.
+
+Call that off. I know what that is.
+
+--Calibrating redirection thrusters--
+--Approaching orbital mine field--
+
+I call that thing a hack and det. The pilot is going to use it to trigger the mines.
+
+As for the fuel, that device is how we're going to make up the difference.

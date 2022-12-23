@@ -1,0 +1,41 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1256202815	Play			\Default Work Unit\Play	
+	1993696620	SetStatePhase1			\Default Work Unit\SetStatePhase1	
+	1993696622	SetStatePhase3			\Default Work Unit\SetStatePhase3	
+	1993696623	SetStatePhase2			\Default Work Unit\SetStatePhase2	
+	2167267996	SetStateDead			\Default Work Unit\SetStateDead	
+	3086540886	StopAll			\Default Work Unit\StopAll	
+	3534336897	SetStateInGame			\Default Work Unit\SetStateInGame	
+	4091358244	SetStatePaused			\Default Work Unit\SetStatePaused	
+	4158285989	GameOver			\Default Work Unit\GameOver	
+	4279841335	Respawn			\Default Work Unit\Respawn	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3285234865	PlayerState			\Default Work Unit\PlayerState	
+	4091656514	GameState			\Default Work Unit\GameState	
+
+State	ID	Name	State Group			Notes
+	748895195	None	PlayerState			
+	2044049779	Dead	PlayerState			
+	3630028968	Phase2	PlayerState			
+	3630028969	Phase3	PlayerState			
+	3630028971	Phase1	PlayerState			
+	319258907	Paused	GameState			
+	748895195	None	GameState			
+	984691642	InGame	GameState			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	457147313	Paused	GameState	\Interactive Music Hierarchy\Default Work Unit\music		
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2346531308	MusicVolume			\Default Work Unit\MusicVolume	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	84553735	intro	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\intro_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\intro\intro		1176208
+	146368538	transition 02a	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\transition 02a_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\transition 02\transition 02a\transition 02a		1176064
+	463991741	03	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\03_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\03\03\03		7056192
+	545128058	transition 01b	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\transition 01b_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\transition 01\transition 01b\transition 01b		1176064
+	692696878	02	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\02_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\02\02\02		2352192
+	722947869	01	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\01_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\01\01\01		2352192
+	892579960	dead	C:\Users\ninja\Documents\WwiseProjects\zenojam_downpatched\.cache\Windows\SFX\dead_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\music\dead\dead\dead		2352208
+

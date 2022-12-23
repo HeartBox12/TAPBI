@@ -1,0 +1,27 @@
+Relativity
+	-Camera
+	-Level
+	-Menu
+	-Score UI
+	-Music
+	-Parallax layers
+	-Tweens and Anims
+
+Level
+	-Player-char
+	-Mines
+	-Spawning and Physics
+	-Distance and Speed UI
+
+OOB -> Fade -> Pan ->* Menu -> Pause -> Respawn
+
+* pan -> scoreAssign -> menu sometimes
+
+HUD orange: f59e2b
+
+Tutorial ideas: Two scenes which occur in sequence and lead directly into gameplay.
+Scene one: Player-char is on gantry under holographic spacebar prompt. Mine is underneath and initiates lift-off.
+Scene two: Player is in-air with two holo-prompts, for both left and right keys. Pressing the keys lights up the
+corresponding prompt. Once both prompts are lit up, the camera slows while the ship doesn't. Ship offscreen, scene end.
+
+Window dimensions: 576 * 900 HALF: 288 * 450
