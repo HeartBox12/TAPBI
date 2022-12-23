@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Scenes/Scene2.gd" type="Script" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Sprites/Parallax/Scene2Sky.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Parallax/Scene2Parts2.png" type="Texture" id=8]
 [ext_resource path="res://Fonts/pixelmix.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Sounds/alarm.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/blip_right.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/blip_left.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/wind2.wav" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 5 )
@@ -139,8 +143,30 @@ offset = Vector2( 144, 225 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="UILoop" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.45
 autostart = true
+
+[node name="Alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -30.0
+autoplay = true
+
+[node name="Bing1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.0
+
+[node name="Bong2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -20.0
+
+[node name="WindLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -25.0
+autoplay = true
+
+[node name="TweenWind" type="Tween" parent="."]
 
 [connection signal="timeout" from="Pause" to="." method="_on_pause"]
 [connection signal="timeout" from="UILoop" to="." method="_UILoop"]
+[connection signal="finished" from="Alarm" to="." method="_on_Alarm_loop"]
+[connection signal="finished" from="WindLoop" to="." method="_on_WindLoop_finished"]

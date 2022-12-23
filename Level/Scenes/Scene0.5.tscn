@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/pixelmix.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Level/Scenes/Scene0.5.gd" type="Script" id=2]
 [ext_resource path="res://Level/Scenes/Scene1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/UI/WhiteSpace.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -40,6 +41,12 @@ one_shot = true
 autostart = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 500, 860 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
 
 [connection signal="timeout" from="DramaticPause" to="." method="_proceed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_up"]

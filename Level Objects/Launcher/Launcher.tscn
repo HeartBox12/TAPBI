@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Level Objects/Launcher/Launcher.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/MineArming.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Fonts/pixelmix.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Sprites/MineDet2-1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/MineDet2-2.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/explosion (1).wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.0
@@ -240,7 +241,7 @@ shape = SubResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 29 )
 animation = "Idle"
-frame = 6
+frame = 2
 playing = true
 
 [node name="HUDLines" type="Line2D" parent="."]
@@ -260,7 +261,10 @@ custom_fonts/font = SubResource( 30 )
 position = Vector2( -4.76837e-07, -101 )
 scale = Vector2( 1.4, 1 )
 
+[node name="Splode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_sprite_loop"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_offscreen"]
+[connection signal="finished" from="Splode" to="." method="_on_Splode_finished"]

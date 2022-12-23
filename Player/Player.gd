@@ -5,7 +5,7 @@ export(int) var afterimageThreshold#How fast the player must go to trigger after
 
 export(PackedScene) var afterImage
 
-var hasBoost = true
+var hasBoost = false
 var prevVel = 0
 var justLaunched = false
 
@@ -36,6 +36,7 @@ func _input(event): #If the player wants to boost
 	if (event.is_action_pressed("ui_up") && hasBoost):
 		linear_velocity = Vector2(0, -1200)
 		hasBoost = false#Expend boost
+		$AnimatedSprite.play("default") #Play afterimages
 		emit_signal("boosting")
 
 func _on_collision(body): #Hit something

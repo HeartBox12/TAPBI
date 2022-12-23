@@ -14,7 +14,8 @@ func _process(_delta):
 	allFrame = 10 - int(floor((10*(1-distance/(1500-source.radius)))))
 	
 	$Arrow.frame = allFrame
-	$Pillar.frame = allFrame
+
+	$Eye.position.y = global_position.y - source.global_position.y
 
 	if ($Arrow.frame <= 0):
 		queue_free()

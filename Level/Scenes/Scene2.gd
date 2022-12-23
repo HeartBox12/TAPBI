@@ -6,6 +6,8 @@ var pausing = false
 export(int) var vibradius#Degree to which the screen vibrates
 export(PackedScene) var next
 
+var pressed1 = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.player = $Player
@@ -16,15 +18,28 @@ func _input(event):
 		$Cinematographer/Camera2D/LeftPrompt.frame = 1 #and play a sound
 		leftPressed = true
 		
+		if rightPressed:
+			$Bong2.play()
+		else:
+			$Bing1.play()
+		
 	elif (event.is_action_pressed("ui_right") && !rightPressed):
 		$Cinematographer/Camera2D/RightPrompt.frame = 1 #and play a sound
 		rightPressed = true
+		
+		if leftPressed:
+			$Bong2.play()
+		else:
+			$Bing1.play()
 
 	if (leftPressed && rightPressed):
 		$Cinematographer.linear_damp = 1
 		
 		$Tween.interpolate_property(self, "vibradius", vibradius, 0, 2)
 		$Tween.start()
+		
+		$TweenWind.interpolate_property($WindLoop, "volume_db", $WindLoop.volume_db, -50, 2)
+		$TweenWind.start()
 
 func _process(_delta):
 	if ($Player.global_position.y < $Cinematographer.global_position.y && !pausing):
@@ -42,3 +57,13 @@ func _UILoop():
 		$Cinematographer/Camera2D/UIMine.visible = false
 	else:
 		$Cinematographer/Camera2D/UIMine.visible = true
+
+
+
+
+func _on_Alarm_loop():
+	$Alarm.play()
+
+
+func _on_WindLoop_finished():
+	$WindLoop.play()

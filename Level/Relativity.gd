@@ -29,6 +29,7 @@ export(int) var speedMin #How fast the player must go to get double points
 # Unmarked segments should now be called every time $level spawns in again.
 func _ready():
 	Global.camera = $Camera
+	#WWISE: REPLACE WITH AudioStreamPlayer.play()
 	Global.playEvent = $Events/PlayMusic
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.MUSICVOLUME, 0.05 * 100, Global.playEvent)
 
@@ -45,22 +46,31 @@ func _process(_delta):
 				boostCharge += diff
 				score += diff
 				digColor("Numbers", $Camera/LabelList) #Color labelList orange
+				$Camera/x2.visible = false
+				
 			else:
 				boostCharge += diff
 				score += 2 * diff
-				digColor("WhiteNums", $Camera/LabelList) #Color labelList white
+				digColor("RedNums", $Camera/LabelList) #Color labelList white
+				$Camera/x2.visible = true
 			
-			if (boostCharge > boostMax): #Maybe add conditional?
+			$Camera/ChargeMeter.frame = int(boostCharge * 39 / 5000)
+			
+			if (boostCharge > boostMax): #The player has earned a boost
 				Global.player.hasBoost = true
+				$Camera/ChargeIndicator.frame = 1
+				$Camera/Prompt.frame = 1
 			
 			display(score, $Camera/LabelList)
 			
 			#Set camera position relative to player
 			$Camera.global_position.y = Global.player.global_position.y - parallaxBuffer
 			
+			#WWISE
 			if (phase == 1 && score > thresh1):
 				$Events/Phase2.post_event()
 				
+			#WWISE
 			elif (phase == 2 && score > thresh2):
 				$Events/Phase3.post_event()
 
@@ -70,7 +80,7 @@ func display(num, node): #Updates the display when the player scores points
 	node.get_node("Hundreds").frame = (int(num) % 1000) / 100
 	node.get_node("Thousands").frame = (int(num) % 10000) / 1000
 	node.get_node("Ten_Thous").frame = (int(num) % 100000) / 10000
-	node.get_node("Hundred_Thousands").frame = (int(num) % 100000) / 10000
+	node.get_node("Hundred_Thousands").frame = (int(num) % 1000000) / 100000
 	node.get_node("Millions").frame = (int(num) % 10000000) / 1000000
 	
 func digColor(anim, node):
@@ -87,6 +97,9 @@ func digColor(anim, node):
 
 func on_boost():
 	boostCharge = 0
+	$Camera/ChargeIndicator.frame = 0
+	$Camera/Prompt.frame = 0
+	$BoostSound.play()
 
 #--DEATH SEQUENCE BEGINS HERE--
 
@@ -130,7 +143,7 @@ func _on_tween_over(object, _key): #Serves multiple purposes within death sequen
 		menu()
 
 func scoreAssign(): #Celebrates the player's new high score, and triggers menu().
-	$Tween.interpolate_method(self, "tweenedScore", highScore, score, 1) #FIXME: not working yet
+	$Tween.interpolate_method(self, "tweenedScore", highScore, score, 1)
 	$Tween.start()
 	highScore = score
 	#menu() #MARKOUT
@@ -148,6 +161,9 @@ func menu(): #Creates a menu. Pressing the menu will trigger reset().
 
 func reset(): #Reset button has been pressed. Despawns menu node and invises highList
 	$Camera/HighList.visible = false
+	
+	$BoostSound.volume_db = audioSetting
+	
 	$LevelSpawnTimer.start()
 	audioSetting = linear2db(newButton.get_node("VSlider").value)
 	newButton.queue_free()
@@ -158,8 +174,11 @@ func _on_LevelSpawnTimer_timeout():
 	$Events/Phase1.post_event() #Reset music to Phase 1
 	
 	score = 0 #Reset score
+	boostCharge = 0
+	$Camera/ChargeIndicator.frame = 0
+	$Camera/Prompt.frame = 0
 	
-	#$AudioStreamPlayer.play() #MARKOUT
+	#$AudioStreamPlayer.play() #WEB
 	$AudioStreamPlayer.volume_db = audioSetting
 	newLevel = level.instance()
 	add_child(newLevel)
@@ -168,9 +187,8 @@ func _on_LevelSpawnTimer_timeout():
 	playerDead = false
 	Global.player.connect("boosting", self, "on_boost")
 	
-	$AudioStreamPlayer.play()
+	
 
-func tweenedScore(value): #Exists to be tweened
+func tweenedScore(value):
 	display(value, $Camera/HighList)
-
 #--DEATH SEQUENCE OVER

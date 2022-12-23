@@ -14,3 +14,7 @@ func _input(event):
 
 func _on_LaunchPause_timeout():
 	get_tree().change_scene_to(next) #Switch to next scene
+
+
+func _on_windLoop_finished():
+	$windLoop.play()

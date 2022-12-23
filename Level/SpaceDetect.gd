@@ -4,6 +4,7 @@ extends Control
 func _input(event):
 	if(event.is_action_pressed("ui_accept")):
 		$Reset.emit_signal("pressed")
+		Global.audioSetting = linear2db($VSlider.value)
 
 
 

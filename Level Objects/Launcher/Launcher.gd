@@ -14,8 +14,11 @@ var playerDead = false
 
 signal det
 
+var sploding = false
+
 func _ready():
 	Global.connect("Death", self, "on_death")
+	$Splode.volume_db = Global.audioSetting
 
 func _process(_delta):
 	if !playerDead: #If there is a player to reference
@@ -85,16 +88,24 @@ func launch():
 	
 	$HUDLines.visible = false
 	
+	$Splode.play()
+	sploding = true
+	
 	if !(Global.player.get("justLaunched") == null):
 		Global.player.justLaunched = true
 
-func _on_sprite_loop():
-	if ($AnimatedSprite.animation == "Det2-1" || $AnimatedSprite.animation == "Det2-2"):
-		queue_free()
+#func _on_sprite_loop(): #REPLACE WITH AUDIOSTREAMPLAYER TRIGGER
+#	if ($AnimatedSprite.animation == "Det2-1" || $AnimatedSprite.animation == "Det2-2"):
+#		queue_free()
 
 func _on_offscreen():
-	queue_free()
+	if !sploding:
+		queue_free()
 
 func on_death():
 	playerDead = true
 	$HUDLines/Meter.text = "x"
+
+
+func _on_Splode_finished():
+	queue_free()
